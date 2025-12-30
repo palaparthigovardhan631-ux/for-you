@@ -113,27 +113,3 @@ body{
   50%{transform:scale(1.25);}
   100%{transform:scale(1);}
 }
-/* START SCREEN */
-#startScreen {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(#000, #1a0026);
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.startText {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.8rem;
-  color: white;
-  text-align: center;
-  animation: pulseStart 2s infinite;
-}
-
-@keyframes pulseStart {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
