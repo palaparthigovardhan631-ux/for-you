@@ -20,7 +20,7 @@ body {
   height: 120px;
   background: white;
   border-radius: 50%;
-  box-shadow: 0 0 40px 20px white;
+  box-shadow: 0 0 40px 20px rgba(255,255,255,0.9);
 }
 
 /* Reel */
@@ -30,50 +30,56 @@ body {
   position: relative;
 }
 
+/* PHOTO ANIMATION – SOFT & LOVING */
 #slide {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: fade 4s infinite, zoom 7s infinite;
+  animation: softMove 12s ease-in-out infinite;
 }
 
-/* CENTER TEXT */
-.center-text {
+/* Handwritten text */
+.love-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
   text-align: center;
-  font-family: 'Georgia', cursive;
-  text-shadow: 0 0 25px rgba(255, 182, 193, 0.9);
+  color: white;
+  font-family: 'Dancing Script', cursive;
+  animation: breathe 6s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(255,182,193,0.9);
 }
 
-.center-text h1 {
-  font-size: 3.2rem;
+.love-text h1 {
+  font-size: 3.8rem;
   letter-spacing: 2px;
+  animation: writeIn 3s ease forwards;
 }
 
-.center-text p {
-  font-size: 1.6rem;
-  margin-top: 15px;
-  line-height: 1.4;
+.love-text p {
+  font-size: 1.9rem;
+  margin-top: 20px;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeUp 3s ease forwards;
+  animation-delay: 1.5s;
 }
 
 #counter {
   display: block;
-  margin-top: 18px;
-  font-size: 1.3rem;
-  opacity: 0.9;
+  margin-top: 25px;
+  font-size: 1.4rem;
+  opacity: 0.85;
 }
 
-/* Fade */
+/* Fade screen */
 #fade {
   position: fixed;
   inset: 0;
   background: black;
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 4s;
   z-index: 90;
 }
 
@@ -87,46 +93,56 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
+  font-family: 'Dancing Script', cursive;
   z-index: 100;
-  font-family: 'Georgia', cursive;
+  text-align: center;
 }
 
 #proposal h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 3.5rem;
 }
 
 #proposal p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin: 15px 0 25px;
 }
 
 #proposal button {
-  padding: 12px 35px;
-  font-size: 18px;
-  border-radius: 30px;
+  padding: 14px 40px;
+  font-size: 20px;
+  border-radius: 35px;
   border: none;
   background: linear-gradient(to right, pink, hotpink);
   cursor: pointer;
 }
 
+/* Ring */
 .ring {
-  font-size: 5rem;
-  animation: pulse 1.5s infinite;
+  font-size: 5.5rem;
+  animation: pulse 1.6s infinite;
 }
 
-/* Animations */
-@keyframes fade {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
+/* ANIMATIONS */
+@keyframes softMove {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.05) translateY(-10px); }
+  100% { transform: scale(1) translateY(0); }
 }
 
-@keyframes zoom {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+@keyframes breathe {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.03); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes writeIn {
+  from { opacity: 0; letter-spacing: 15px; }
+  to { opacity: 1; letter-spacing: 2px; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {

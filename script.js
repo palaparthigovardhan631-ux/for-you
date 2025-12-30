@@ -10,17 +10,15 @@ const photos = [
   "photo9.jpg.jpeg",
   "photo10.jpg.jpeg"
 ];
-
-
 let index = 0;
 const slide = document.getElementById("slide");
 const fade = document.getElementById("fade");
 const proposal = document.getElementById("proposal");
 const bgm = document.getElementById("bgm");
 
-bgm.volume = 0.6;
+bgm.volume = 0.55;
 
-/* SLIDESHOW */
+/* PHOTO FLOW */
 const slideshow = setInterval(() => {
   index++;
   if (index >= photos.length) {
@@ -29,7 +27,7 @@ const slideshow = setInterval(() => {
   } else {
     slide.src = photos[index];
   }
-}, 3500);
+}, 4500);
 
 /* CLIMAX */
 function startClimax() {
@@ -37,7 +35,7 @@ function startClimax() {
   setTimeout(() => {
     bgm.volume = 0.3;
     proposal.style.display = "flex";
-  }, 3000);
+  }, 4000);
 }
 
 function finalYes() {
@@ -49,5 +47,5 @@ const startDate = new Date("2023-01-01"); // CHANGE
 setInterval(() => {
   const days = Math.floor((new Date() - startDate) / 86400000);
   document.getElementById("counter").innerText =
-    `${days} days of love ❤️`;
+    `${days} days of loving you ❤️`;
 }, 1000);
