@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(#000, #1a0026);
+      color: white;
+      font-family: 'Georgia', cursive;
+    }
+    .box {
+      text-align: center;
+    }
+    input, button {
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: none;
+      margin-top: 12px;
+    }
+    button {
+      background: linear-gradient(to right, pink, hotpink);
+      color: black;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+  <h2>Only for you ❤️</h2>
+  <input type="password" id="pwd" placeholder="Secret word">
+  <br>
+  <button onclick="openLove()">Open My Heart 💖</button>
+</div>
+
+<script>
+const music = document.getElementById("bgm");
+
+function openLove() {
+  music.play(); // USER INTERACTION → MUSIC ALLOWED
+  if (document.getElementById("pwd").value === "bujji") {
+    setTimeout(() => {
+      window.location.href = "love.html";
+    }, 500);
+  } else {
+    alert("Wrong password 😢");
+  }
+}
+</script>
+
+</body>
+</html>
