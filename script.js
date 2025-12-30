@@ -10,42 +10,45 @@ const photos = [
   "photo9.jpg.jpeg",
   "photo10.jpg.jpeg"
 ];
-let index = 0;
-const slide = document.getElementById("slide");
-const fade = document.getElementById("fade");
-const proposal = document.getElementById("proposal");
-const bgm = document.getElementById("bgm");
+const captions=[
+ "You are my calm, my chaos, my home.",
+ "Every smile of yours feels like magic.",
+ "With you, time forgets to rush.",
+ "You make ordinary days beautiful.",
+ "I found my forever in your eyes.",
+ "Loving you feels easy and right.",
+ "Every heartbeat whispers your name.",
+ "You are my favorite feeling.",
+ "My soul recognized you instantly.",
+ "Forever feels perfect with you."
+];
 
-bgm.volume = 0.55;
+let i=0;
+const slide=document.getElementById("slide");
+const line2=document.getElementById("line2");
+const fade=document.getElementById("fade");
+const ending=document.getElementById("ending");
+const bgm=document.getElementById("bgm");
 
-/* PHOTO FLOW */
-const slideshow = setInterval(() => {
-  index++;
-  if (index >= photos.length) {
-    clearInterval(slideshow);
-    startClimax();
-  } else {
-    slide.src = photos[index];
+bgm.volume=0.55;
+
+/* Slideshow */
+const show=setInterval(()=>{
+  i++;
+  if(i>=photos.length){
+    clearInterval(show);
+    endWonder();
+  }else{
+    slide.src=photos[i];
+    line2.innerText=captions[i];
   }
-}, 4500);
+},5000);
 
-/* CLIMAX */
-function startClimax() {
-  fade.style.opacity = "1";
-  setTimeout(() => {
-    bgm.volume = 0.3;
-    proposal.style.display = "flex";
-  }, 4000);
+/* Ending wonder */
+function endWonder(){
+  fade.style.opacity="1";
+  setTimeout(()=>{
+    bgm.volume=0.35;
+    ending.style.display="flex";
+  },5000);
 }
-
-function finalYes() {
-  alert("She said YES 💍❤️");
-}
-
-/* COUNTER */
-const startDate = new Date("2023-01-01"); // CHANGE
-setInterval(() => {
-  const days = Math.floor((new Date() - startDate) / 86400000);
-  document.getElementById("counter").innerText =
-    `${days} days of loving you ❤️`;
-}, 1000);
